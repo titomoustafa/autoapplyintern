@@ -5,6 +5,8 @@ A personal bot that, every night, finds job postings, scores how well they fit a
 and auto-applies to the best ones. Anything it can't finish safely goes to a "Needs you" queue
 on the dashboard. Full design: [docs/PLAN.md](docs/PLAN.md). How to operate it: [RUNBOOK.md](RUNBOOK.md).
 
+**New to this repo? Read [HANDOFF.md](HANDOFF.md) first** — current state, decisions, gotchas, next steps.
+
 Current priority: the **Mechanical Engineering internship** profile. The SWE profile exists but is off.
 
 ## Stack
