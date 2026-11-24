@@ -55,7 +55,7 @@ auto-apply/
   worker/llm/{index,gemini,anthropic}.ts                 # provider chosen by LLM_PROVIDER env
   worker/gmail.ts         # read-only verification-link fetcher
   worker/browser.ts       # Playwright setup, screenshot+upload, captcha detection
-  profiles/<name>.yaml    # fixed answers + filters (non-secret); resume PDFs in R2
+  profiles/<name>.yaml    # fixed answers + filters; NOT committed (public repo) — loaded from PROFILES_YAML secret in CI
   scripts/seed-companies.ts  # import list, auto-detect ATS from careers URL
   app/                    # Next.js dashboard: Today, Needs you, Applications (w/ screenshots),
                           # Companies, Profile; protected by password middleware
@@ -63,7 +63,7 @@ auto-apply/
 
 ## Milestones
 - **M0 – Setup (day 1):** create `~/Documents/Auto Apply`, git init, private GitHub repo, Neon DB, Vercel project, R2 bucket, Gemini key, Gmail OAuth client + refresh token; secrets in GH Actions/Vercel. Write AGENTS.md/RUNBOOK.md skeleton.
-- **M1 – Find & rank (days 2–4):** adapters' `listJobs` for all four ATSs, prefilter, Gemini scoring, dashboard list of ranked jobs. Seed ME-focused companies (aerospace, auto/EV, defense, robotics, energy, hardware startups) from public internship lists. *Immediately useful — friend can apply by hand from the ranked list while M2/M3 are built.*
+- **M1 – Find & rank (days 2–4):** ✅ done 2026-11-24 (452 boards seeded from Simplify's public Summer 2027 list + curated; full run ≈3 min before AI scoring). adapters' `listJobs` for all four ATSs, prefilter, Gemini scoring, dashboard list of ranked jobs. Seed ME-focused companies (aerospace, auto/EV, defense, robotics, energy, hardware startups) from public internship lists. *Immediately useful — friend can apply by hand from the ranked list while M2/M3 are built.*
 - **M2 – Auto-apply easy ATS, practice mode (days 5–9):** Greenhouse, Lever, Ashby `apply()`; answer bank; screenshots; Needs-you queue.
 - **M3 – Workday, practice mode (days 9–16):** account creation/login, Gmail verification, wizard navigation, credential encryption, captcha → Needs-you.
 - **M4 – Go live:** friend reviews ~20 practice fills; flip `MODE=live` per ATS, cap 5–10/day.

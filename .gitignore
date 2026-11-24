@@ -7,3 +7,9 @@ screenshots/
 *.pdf
 profiles/*.local.yaml
 .DS_Store
+.data/
+# Real profiles contain personal info; only the example is committed.
+profiles/*
+!profiles/example.yaml
+next-env.d.ts
+*.tsbuildinfo

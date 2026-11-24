@@ -1,0 +1,65 @@
+# Copy this file to profiles/<your-id>.yaml and fill it in.
+# Real profiles are NOT committed (this repo is public). In GitHub Actions they come
+# from a secret — see RUNBOOK.md "Adding a profile".
+
+id: example            # lowercase, no spaces
+name: Example Person
+active: true           # false = skip this person during nightly runs
+
+search:
+  # Typed into the search box of big Workday sites (Boeing, GM, RTX…).
+  workday_terms:
+    - mechanical engineering intern
+    - mechanical intern
+    - manufacturing engineering intern
+    - aerospace intern
+
+  # The job title must contain at least one of these (whole words, any case)…
+  title_any:
+    - mechanical
+    - mechanical engineer
+    - manufacturing
+    - aerospace
+    - propulsion
+    - structures
+    - structural
+    - thermal
+    - design engineer
+    - hardware engineer
+    - test engineer
+    - product design
+    - mechatronics
+    - robotics
+    - CAD
+  # …and one of these.
+  level_any: [intern, internship, co-op, coop, "summer 2027"]
+  # …and none of these.
+  title_exclude: [senior, sr, staff, principal, lead, manager, director, phd, "fall 2026"]
+
+  # Location must contain one of these. Leave empty [] for anywhere.
+  location_any: [United States, USA, US, Remote, CA, TX, WA, CO, FL, AZ, MI, OH, NY, MA, GA, AL, VA, CT, PA, NC, IL, MN, UT]
+  location_exclude: [Canada, India, Mexico, Germany, UK, United Kingdom, China, Poland]
+
+  # Skip if the description mentions any of these.
+  description_exclude: ["PhD required", "currently pursuing a PhD"]
+
+scoring:
+  min_score: 70
+  # Plain English for the AI. Eligibility matters: many aerospace/defense roles need US citizenship.
+  # Never put phone, address, or demographic info here.
+  preferences: |
+    Looking for a Summer 2027 mechanical engineering internship.
+    US citizen (eligible for ITAR / export-controlled roles); no visa sponsorship needed.
+    Junior, B.S. Mechanical Engineering, graduating May 2028.
+    Most interested in aerospace, EV/automotive, robotics, and product design.
+
+# Paste your resume as plain text. Email/phone/address are removed before any AI sees it.
+resume_text: |
+  EXAMPLE PERSON
+  B.S. Mechanical Engineering, Example University — expected May 2028, GPA 3.6
+  Skills: SolidWorks, Fusion 360, GD&T, MATLAB, Python, FEA (ANSYS), 3D printing, machining
+  Experience:
+  - Formula SAE, Chassis Team Member: designed and FEA-validated suspension brackets
+  - Teaching Assistant, Statics: led weekly recitations for 40 students
+  Projects:
+  - Built a thrust stand for small solid rocket motors; logged data with an Arduino load cell

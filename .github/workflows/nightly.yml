@@ -1,0 +1,38 @@
+name: Nightly
+
+on:
+  schedule:
+    - cron: "0 7 * * *" # 07:00 UTC ≈ 2am Eastern
+  workflow_dispatch:
+    inputs:
+      companies:
+        description: "Only check the first N companies (blank = all)"
+        required: false
+      score_limit:
+        description: "Max jobs to score per person (blank = default)"
+        required: false
+
+concurrency:
+  group: nightly
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Find, filter and score jobs
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PROFILES_YAML: ${{ secrets.PROFILES_YAML }}
+          SCORE_LIMIT: ${{ inputs.score_limit || vars.SCORE_LIMIT || '60' }}
+          COMPANIES: ${{ inputs.companies }}
+        run: |
+          if [ -n "$COMPANIES" ]; then npm run worker -- --companies "$COMPANIES"; else npm run worker; fi

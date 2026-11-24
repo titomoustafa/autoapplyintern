@@ -1,0 +1,52 @@
+{
+  "name": "auto-apply",
+  "version": "1.0.0",
+  "description": "Nightly bot that finds, ranks and applies to jobs",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "worker": "tsx worker/run.ts",
+    "seed:companies": "tsx scripts/seed-companies.ts",
+    "db:generate": "drizzle-kit generate",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titomoustafa/autoapplyintern.git"
+  },
+  "bugs": {
+    "url": "https://github.com/titomoustafa/autoapplyintern/issues"
+  },
+  "homepage": "https://github.com/titomoustafa/autoapplyintern#readme",
+  "dependencies": {
+    "@electric-sql/pglite": "^0.6.0",
+    "@google/genai": "^3.6.1",
+    "drizzle-orm": "^0.45.4",
+    "next": "^16.4.6",
+    "postgres": "^4.1.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "server-only": "^0.0.1",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.7",
+    "@types/react": "^19.3.1",
+    "@types/react-dom": "^19.3.0",
+    "drizzle-kit": "^0.31.11",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.1"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  }
+}

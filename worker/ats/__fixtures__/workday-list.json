@@ -1,0 +1,25 @@
+{
+ "total": 2,
+ "jobPostings": [
+  {
+   "title": "Agent M\u00e9thode / Manufacturing Engineering Specialist",
+   "externalPath": "/job/CA-QC-LONGUEUIL-J01--1000-Blvd-Marie-Victorin--J01-BLDG/Agent-Mthode---Manufacturing-Engineering-Specialist_01889779",
+   "timeType": "Full time",
+   "locationsText": "CA-QC-LONGUEUIL-J01 ~ 1000 Blvd Marie-Victorin ~ J01 BLDG",
+   "postedOn": "Posted Today",
+   "bulletFields": [
+    "01889779"
+   ]
+  },
+  {
+   "title": "Principle Vibrations Engineer (Onsite)",
+   "externalPath": "/job/US-CT-EAST-HARTFORD-ETC--400-Main-St--BLDG-ETC/Principle-Vibrations-Engineer--Onsite-_01887574",
+   "timeType": "Full time",
+   "locationsText": "US-CT-EAST HARTFORD-ETC ~ 400 Main St ~ BLDG ETC",
+   "postedOn": "Posted Today",
+   "bulletFields": [
+    "01887574"
+   ]
+  }
+ ]
+}
